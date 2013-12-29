@@ -11,6 +11,7 @@ class sonar (
   $db            = $sonar::params::db,
   $db_user       = $sonar::params::db_user,
   $db_pass       = $sonar::params::db_pass,
+  $plugins       = undef
 
 ) inherits sonar::params {
 

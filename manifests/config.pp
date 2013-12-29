@@ -13,5 +13,9 @@ class sonar::config {
     group   => $sonar::params::group,
     mode    => '0644',
   }
+
+  if $sonar::plugins {
+    sonar::plugins {$sonar::plugins:}
+  }
 }
 
