@@ -1,12 +1,12 @@
 class sonar::params {
 
+  $host       = hiera('sonar_host')
+  $port       = hiera('sonar_port')
   $db_host    = hiera('sonar_db_host')
   $db         = hiera('sonar_db')
   $db_user    = hiera('sonar_db_user')
   $db_pass    = hiera('sonar_db_pass')
   $admin_pass = hiera('sonar_admin_pass')
-
-  $port                = '9090'
 
   $service             = 'sonar'
   $config_path         = '/opt/sonar/conf'

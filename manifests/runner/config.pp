@@ -4,6 +4,7 @@ class sonar::runner::config {
   $db      = $sonar::runner::db
   $db_user = $sonar::runner::db_user
   $db_pass = $sonar::runner::db_pass
+  $host    = $sonar::runner::host
   $port    = $sonar::params::port
 
   exec {'link_runner_path':
