@@ -181,3 +181,13 @@ sonar.web.port=<%= @port %>
 
 # Delay (in seconds) between processing of notification queue
 sonar.notifications.delay=60
+<% if @ldap -%>
+
+sonar.security.realm=LDAP
+ldap.url=ldap://<%= @ldap_host %>
+ldap.bindDn=<%= @ldap_admin_user %>
+ldap.bindPassword=<%= @ldap_admin_pass %>
+ldap.user.baseDn=ou=People,<%= @ldap_suffix %>
+ldap.user.realNameAttribute=cn
+ldap.user.emailAttribute=mail
+<% end -%>
