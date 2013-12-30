@@ -42,6 +42,14 @@ class sonar::params {
   $ldap_plugin_repo_path   = 'org/codehaus/sonar-plugins/sonar-ldap-plugin/1.3'
   $ldap_plugin_package     = 'sonar-ldap-plugin-1.3.jar'
 
+  $cpp_plugin_repo_scheme = 'http'
+  $cpp_plugin_repo_domain = 'repo.smartpurposes.com'
+  $cpp_plugin_repo_port   = false
+  $cpp_plugin_repo_user   = false
+  $cpp_plugin_repo_pass   = false
+  $cpp_plugin_repo_path   = ''
+  $cpp_plugin_package     = 'sonar-cpp-plugin-2.0.jar'
+
   case $::operatingsystem {
     /^(Debian|Ubuntu)$/: {
       $installer   = '/usr/bin/dpkg'
