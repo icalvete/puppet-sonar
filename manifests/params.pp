@@ -43,11 +43,11 @@ class sonar::params {
   $ldap_plugin_package     = 'sonar-ldap-plugin-1.3.jar'
 
   $cpp_plugin_repo_scheme = 'http'
-  $cpp_plugin_repo_domain = 'repo.smartpurposes.com'
+  $cpp_plugin_repo_domain = 'dist.sonarsource.com'
   $cpp_plugin_repo_port   = false
   $cpp_plugin_repo_user   = false
   $cpp_plugin_repo_pass   = false
-  $cpp_plugin_repo_path   = ''
+  $cpp_plugin_repo_path   = 'cpp/download'
   $cpp_plugin_package     = 'sonar-cpp-plugin-2.0.jar'
 
   case $::operatingsystem {
