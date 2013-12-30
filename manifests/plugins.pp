@@ -1,6 +1,8 @@
 define sonar::plugins {
 
   $plugin = "sonar::plugins::${name}"
-  include $plugin
+  class {$plugin:
+    notify => Class['sonar::service']
+  }
 }
 
