@@ -19,7 +19,7 @@ class sonar::config {
   }
 
   if $sonar::ssl {
-    file {'keystore':
+    file {'sonar_keystore':
       ensure => present,
       source => "puppet:///modules/sp/sonar_keys/keystore",
       path   => "${sonar::params::path}/.keystore",
