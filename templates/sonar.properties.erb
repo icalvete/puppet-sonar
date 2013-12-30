@@ -96,7 +96,7 @@ sonar.web.host=0.0.0.0
 #sonar.web.context=
 
 # TCP port for incoming HTTP connections. Disabled when value is -1.
-sonar.web.port=<%= @port %>
+sonar.web.port=<%= scope.lookupvar('sonar::params::port') %>
 
 # TCP port for incoming HTTPS connections. Disabled when value is -1 (default).
 #sonar.web.https.port=-1
@@ -181,6 +181,23 @@ sonar.web.port=<%= @port %>
 
 # Delay (in seconds) between processing of notification queue
 sonar.notifications.delay=60
+
+sonar.forceAuthentication=true
+<% if @ssl -%>
+
+# TCP port for incoming HTTPS connections. Disabled when value is -1 (default).
+sonar.web.https.port=<%= scope.lookupvar('sonar::params::sport') %>
+
+# HTTPS - the alias used to for the server certificate in the keystore.
+sonar.web.https.keyAlias=sonarkey
+   
+# HTTPS - the password used to access the server certificate from the
+sonar.web.https.keyPass=<%= scope.lookupvar('sonar::params::skey') %>
+
+# HTTPS - the password used to access the specified keystore file. The default
+# value is the value of sonar.web.https.keyPass.
+sonar.web.https.keystorePass=<%= scope.lookupvar('sonar::params::skey') %>
+<% end -%>
 <% if @ldap -%>
 
 sonar.security.realm=LDAP

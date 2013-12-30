@@ -7,7 +7,7 @@ class sonar::plugins::ldap (
   $repo_pass     = $sonar::params::ldap_plugin_repo_pass,
   $repo_path     = $sonar::params::ldap_plugin_repo_path,
   $repo_resource = $sonar::params::ldap_plugin_package,
-  $target        = "${sonar::params::install_path}/${module_name}/extensions/plugins"
+  $target        = "${sonar::params::path}/extensions/plugins"
 
 ) {
 

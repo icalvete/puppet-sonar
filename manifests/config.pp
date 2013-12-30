@@ -4,9 +4,9 @@ class sonar::config {
   $db      = $sonar::db
   $db_user = $sonar::db_user
   $db_pass = $sonar::db_pass
-  $port    = $sonar::params::port
 
-  file{'sonar_configuration':
+  file {'sonar_configuration':
+    ensure => present,
     content => template("${module_name}/sonar.properties.erb"),
     path    => "${sonar::params::config_path}/sonar.properties",
     owner   => $sonar::params::user,
@@ -16,6 +16,17 @@ class sonar::config {
 
   if $sonar::plugins {
     sonar::plugins {$sonar::plugins:}
+  }
+
+  if $sonar::ssl {
+    file {'keystore':
+      ensure => present,
+      source => "puppet:///modules/sp/sonar_keys/keystore",
+      path   => "${sonar::params::path}/.keystore",
+      owner  => $sonar::params::user,
+      group  => $sonar::params::group,
+      mode   => '0644',
+    }
   }
 }
 

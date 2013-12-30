@@ -7,7 +7,7 @@ class sonar::plugins::php (
   $repo_pass     = $sonar::params::php_plugin_repo_pass,
   $repo_path     = $sonar::params::php_plugin_repo_path,
   $repo_resource = $sonar::params::php_plugin_package,
-  $target        = "${sonar::params::install_path}/${module_name}/extensions/plugins"
+  $target        = "${sonar::params::path}/extensions/plugins"
 
 ) {
 

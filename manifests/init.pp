@@ -17,6 +17,7 @@ class sonar (
   $ldap_suffix     = $sonar::params::ldap_suffix,
   $ldap_admin_user = $sonar::params::ldap_admin_user,
   $ldap_admin_pass = $sonar::params::ldap_admin_pass,
+  $ssl             = false
 
 ) inherits sonar::params {
 

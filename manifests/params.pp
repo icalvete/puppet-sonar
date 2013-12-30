@@ -2,10 +2,12 @@ class sonar::params {
 
   $host                    = hiera('sonar_host')
   $port                    = hiera('sonar_port')
+  $sport                   = hiera('sonar_sport')
   $db_host                 = hiera('sonar_db_host')
   $db                      = hiera('sonar_db')
   $db_user                 = hiera('sonar_db_user')
   $db_pass                 = hiera('sonar_db_pass')
+  $skey                    = hiera('sonar_skey')
   $admin_pass              = hiera('sonar_admin_pass')
 
   $ldap_host               = hiera('ldap_host')
@@ -14,10 +16,12 @@ class sonar::params {
   $ldap_admin_pass         = hiera('ldap_admin_pass')
 
   $service                 = 'sonar'
-  $config_path             = '/opt/sonar/conf'
   $user                    = 'sonar'
 
   $install_path            = '/opt'
+  $path                    = "${install_path}/sonar"
+  $config_path             = "${path}/conf"
+
   $runner_install_path     = '/opt'
   $runner_path             = '/opt/sonar-runner'
   $runner_config_path      = "${runner_path}/conf"
