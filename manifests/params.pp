@@ -1,5 +1,14 @@
 class sonar::params {
 
+  $repo_scheme             = hiera('sp_repo_scheme')
+  $repo_domain             = hiera('sp_repo_domain')
+  $repo_port               = hiera('sp_repo_port')
+  $repo_user               = hiera('sp_repo_user')
+  $repo_pass               = hiera('sp_repo_pass')
+  $repo_path               = hiera('sp_repo_path')
+  $package                 = hiera('sonar_package')
+  $runner_package          = hiera('sonar_runner_package')
+
   $host                    = hiera('sonar_host')
   $port                    = hiera('sonar_port')
   $sport                   = hiera('sonar_sport')
@@ -42,13 +51,13 @@ class sonar::params {
   $ldap_plugin_repo_path   = 'org/codehaus/sonar-plugins/sonar-ldap-plugin/1.3'
   $ldap_plugin_package     = 'sonar-ldap-plugin-1.3.jar'
 
-  $cpp_plugin_repo_scheme = 'http'
-  $cpp_plugin_repo_domain = 'dist.sonarsource.com'
-  $cpp_plugin_repo_port   = false
-  $cpp_plugin_repo_user   = false
-  $cpp_plugin_repo_pass   = false
-  $cpp_plugin_repo_path   = 'cpp/download'
-  $cpp_plugin_package     = 'sonar-cpp-plugin-2.0.jar'
+  $cpp_plugin_repo_scheme  = 'http'
+  $cpp_plugin_repo_domain  = 'dist.sonarsource.com'
+  $cpp_plugin_repo_port    = false
+  $cpp_plugin_repo_user    = false
+  $cpp_plugin_repo_pass    = false
+  $cpp_plugin_repo_path    = 'cpp/download'
+  $cpp_plugin_package      = 'sonar-cpp-plugin-2.0.jar'
 
   case $::operatingsystem {
     /^(Debian|Ubuntu)$/: {
