@@ -29,10 +29,18 @@ class sonar::plugins::php (
     ensure => present
   }
 
-  php5::pear::channel {'pear.phpunit.de':}
-  php5::pear::channel {'pear.symfony.com':}
-  php5::pear::channel {'pear.phpmd.org':}
-  php5::pear::channel {'pear.pdepend.org':}
+  php5::pear::channel {'pear.phpunit.de':
+    require => Class['php5::pear']
+  }
+  php5::pear::channel {'pear.symfony.com':
+    require => Class['php5::pear']
+  }
+  php5::pear::channel {'pear.phpmd.org':
+    require => Class['php5::pear']
+  }
+  php5::pear::channel {'pear.pdepend.org':
+    require => Class['php5::pear']
+  }
 
   php5::pear::install_package {'phpunit/PHPUnit':
     require => Php5::Pear::Channel['pear.phpunit.de', 'pear.symfony.com']
