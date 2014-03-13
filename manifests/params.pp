@@ -52,12 +52,12 @@ class sonar::params {
   $ldap_plugin_package     = 'sonar-ldap-plugin-1.3.jar'
 
   $cpp_plugin_repo_scheme  = 'http'
-  $cpp_plugin_repo_domain  = 'dist.sonarsource.com'
+  $cpp_plugin_repo_domain  = 'github.com'
   $cpp_plugin_repo_port    = false
   $cpp_plugin_repo_user    = false
   $cpp_plugin_repo_pass    = false
-  $cpp_plugin_repo_path    = 'cpp/download'
-  $cpp_plugin_package      = 'sonar-cpp-plugin-2.0.jar'
+  $cpp_plugin_repo_path    = 'wenns/sonar-cxx/releases/download/cxx-0.9'
+  $cpp_plugin_package      = 'sonar-cxx-plugin-0.9.jar'
 
   case $::operatingsystem {
     /^(Debian|Ubuntu)$/: {
