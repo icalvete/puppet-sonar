@@ -22,8 +22,8 @@ class sonar::runner::config {
   file {'sonar_runner_configuration':
     content => template("${module_name}/sonar-runner.properties.erb"),
     path    => "${sonar::params::runner_config_path}/sonar-runner.properties",
-    owner   => $sonar::params::user,
-    group   => $sonar::params::group,
+    owner   => 'root',
+    group   => 'root',
     mode    => '0644',
     require => Exec['link_runner_path']
   }
