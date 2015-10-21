@@ -15,6 +15,7 @@ class sonar::runner::install {
 
   exec {'install_sonar_runner':
     command => "/usr/bin/unzip /tmp/${sonar::runner::repo_resource}",
+    cwd     => $sonar::params::install_path,
     user    => 'root',
     unless  => "/usr/bin/test -L ${sonar::params::runner_path}",
     require => Package['unzip']

@@ -40,24 +40,24 @@ class sonar::params {
   $php_plugin_repo_port    = false
   $php_plugin_repo_user    = false
   $php_plugin_repo_pass    = false
-  $php_plugin_repo_path    = 'org/codehaus/sonar-plugins/php/sonar-php-plugin/1.2'
-  $php_plugin_package      = 'sonar-php-plugin-1.2.jar'
+  $php_plugin_repo_path    = 'org/codehaus/sonar-plugins/php/sonar-php-plugin/2.4.1'
+  $php_plugin_package      = 'sonar-php-plugin-2.4.1.jar'
 
   $ldap_plugin_repo_scheme = 'http'
   $ldap_plugin_repo_domain = 'repository.codehaus.org'
   $ldap_plugin_repo_port   = false
   $ldap_plugin_repo_user   = false
   $ldap_plugin_repo_pass   = false
-  $ldap_plugin_repo_path   = 'org/codehaus/sonar-plugins/sonar-ldap-plugin/1.3'
-  $ldap_plugin_package     = 'sonar-ldap-plugin-1.3.jar'
+  $ldap_plugin_repo_path   = 'org/codehaus/sonar-plugins/sonar-ldap-plugin/1.4'
+  $ldap_plugin_package     = 'sonar-ldap-plugin-1.4.jar'
 
   $cpp_plugin_repo_scheme  = 'http'
   $cpp_plugin_repo_domain  = 'github.com'
   $cpp_plugin_repo_port    = false
   $cpp_plugin_repo_user    = false
   $cpp_plugin_repo_pass    = false
-  $cpp_plugin_repo_path    = 'wenns/sonar-cxx/releases/download/cxx-0.9'
-  $cpp_plugin_package      = 'sonar-cxx-plugin-0.9.jar'
+  $cpp_plugin_repo_path    = 'wenns/sonar-cxx/releases/download/cxx-0.9.2'
+  $cpp_plugin_package      = 'sonar-cxx-plugin-0.9.2.jar'
 
   case $::operatingsystem {
     /^(Debian|Ubuntu)$/: {

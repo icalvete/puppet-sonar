@@ -6,7 +6,7 @@ class sonar::runner (
   $repo_user     = $sonar::params::repo_user,
   $repo_pass     = $sonar::params::repo_pass,
   $repo_path     = $sonar::params::repo_path,
-  $repo_resource = $sonar::params::package,
+  $repo_resource = $sonar::params::runner_package,
   $db_host       = $sonar::params::db_host,
   $db            = $sonar::params::db,
   $db_user       = $sonar::params::db_user,
