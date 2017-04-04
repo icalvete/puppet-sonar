@@ -1,4 +1,4 @@
-#puppet-sonar
+# puppet-sonar
 
 Puppet manifest to install and configure sonar
 
@@ -6,12 +6,12 @@ Puppet manifest to install and configure sonar
 
 See [SonarQube site](https://github.com/icalvete/puppet-sonar.git)
 
-##Requires:
+## Requires:
 
 * [hiera](http://docs.puppetlabs.com/hiera/1/index.html)
 * https://github.com/icalvete/puppet-common 
 
 
-##Authors:
+## Authors:
 
 Israel Calvete Talavera <icalvete@gmail.com>
