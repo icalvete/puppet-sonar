@@ -1,74 +1,111 @@
 class sonar::params {
+  $admin_pass = lookup(
+    'sonar_admin_pass',
+    String,
+    'first',
+    'admin'
+  )
+  $xmx = lookup(
+    'sonar_xmx',
+    String,
+    'first',
+    '1024'
+  )
+  $xms = lookup(
+    'sonar_xms',
+    String,
+    'first',
+    '512'
+  )
+  $host = lookup(
+    'sonar_host',
+    String,
+    'first',
+    '127.0.0.1'
+  )
+  $port = lookup('
+    sonar_port',
+    String,
+    'first',
+    '9999'
+  )
+  $sport = lookup(
+    'sonar_sport',
+    String,
+    'first',
+    '9998'
+  )
+  $db_host = lookup(
+    'sonar_db_host',
+    String,
+    'first',
+    '127.0.0.1'
+  )
+  $db = lookup(
+    'sonar_db',
+    String,
+    'first',
+    'sonar'
+  )
+  $db_user = lookup(
+    'sonar_db_user',
+    String,
+    'first',
+    'sonar'
+  )
+  $db_pass = lookup(
+    'sonar_db_pass',
+    String,
+    'first',
+    'sonar'
+  )
+  $skey = lookup(
+    'sonar_skey',
+    String,
+    'first',
+    'sonar'
+  )
 
-  $repo_scheme             = hiera('sp_repo_scheme')
-  $repo_domain             = hiera('sp_repo_domain')
-  $repo_port               = hiera('sp_repo_port')
-  $repo_user               = hiera('sp_repo_user')
-  $repo_pass               = hiera('sp_repo_pass')
-  $repo_path               = hiera('sp_repo_path')
-  $package                 = hiera('sonar_package')
-  $runner_package          = hiera('sonar_runner_package')
+  $ldap_host  = lookup(
+    'ldap_host',
+    String,
+    'first',
+    '127.0.0.1'
+  )
+  $ldap_suffix = lookup(
+    'ldap_suffix',
+    String,
+    'first',
+    'example.net'
+  )
+  $ldap_admin_user = lookup(
+    'ldap_admin_user',
+    String,
+    'first',
+    'ldap'
+  )
+  $ldap_admin_pass = lookup(
+    'ldap_admin_pass',
+    String,
+    'first',
+    'ldap'
+  )
 
-  $host                    = hiera('sonar_host')
-  $port                    = hiera('sonar_port')
-  $sport                   = hiera('sonar_sport')
-  $db_host                 = hiera('sonar_db_host')
-  $db                      = hiera('sonar_db')
-  $db_user                 = hiera('sonar_db_user')
-  $db_pass                 = hiera('sonar_db_pass')
-  $skey                    = hiera('sonar_skey')
-  $admin_pass              = hiera('sonar_admin_pass')
+  $service = 'sonar'
+  $user    = 'sonar'
 
-  $ldap_host               = hiera('ldap_host')
-  $ldap_suffix             = hiera('ldap_suffix')
-  $ldap_admin_user         = hiera('ldap_admin_user')
-  $ldap_admin_pass         = hiera('ldap_admin_pass')
+  $package_scanner = 'sonar-scanner-cli-3.3.0.1492-linux.zip'
+  $url_scanner     = "https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/${package_scanner}"
 
-  $service                 = 'sonar'
-  $user                    = 'sonar'
-
-  $install_path            = '/opt'
-  $path                    = "${install_path}/sonar"
-  $config_path             = "${path}/conf"
-
-  $runner_install_path     = '/opt'
-  $runner_path             = '/opt/sonar-runner'
-  $runner_config_path      = "${runner_path}/conf"
-
-  $php_plugin_repo_scheme  = 'http'
-  $php_plugin_repo_domain  = 'repository.codehaus.org'
-  $php_plugin_repo_port    = false
-  $php_plugin_repo_user    = false
-  $php_plugin_repo_pass    = false
-  $php_plugin_repo_path    = 'org/codehaus/sonar-plugins/php/sonar-php-plugin/2.4.1'
-  $php_plugin_package      = 'sonar-php-plugin-2.4.1.jar'
-
-  $ldap_plugin_repo_scheme = 'http'
-  $ldap_plugin_repo_domain = 'repository.codehaus.org'
-  $ldap_plugin_repo_port   = false
-  $ldap_plugin_repo_user   = false
-  $ldap_plugin_repo_pass   = false
-  $ldap_plugin_repo_path   = 'org/codehaus/sonar-plugins/sonar-ldap-plugin/1.4'
-  $ldap_plugin_package     = 'sonar-ldap-plugin-1.4.jar'
-
-  $cpp_plugin_repo_scheme  = 'http'
-  $cpp_plugin_repo_domain  = 'github.com'
-  $cpp_plugin_repo_port    = false
-  $cpp_plugin_repo_user    = false
-  $cpp_plugin_repo_pass    = false
-  $cpp_plugin_repo_path    = 'wenns/sonar-cxx/releases/download/cxx-0.9.2'
-  $cpp_plugin_package      = 'sonar-cxx-plugin-0.9.2.jar'
+  $install_path        = '/opt'
+  $path                = "${install_path}/sonar"
+  $path_scanner        = "${install_path}/sonar-scanner"
+  $config_path         = "${path}/conf"
+  $config_path_scanner = "${path_scanner}/conf"
 
   case $::operatingsystem {
     /^(Debian|Ubuntu)$/: {
       $installer   = '/usr/bin/dpkg'
-      $pre_package = 'openjdk-7-jre'
-      $group       = 'adm'
-    }
-    /^(CentOS|RedHat)$/: {
-      $installer   = '/bin/rpm'
-      $pre_package = 'java-1.6.0-openjdk'
-      $group       = 'sonar'
     }
     default: {
       fail ("${::operatingsystem} not supported.")
