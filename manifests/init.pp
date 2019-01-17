@@ -1,12 +1,10 @@
 class sonar (
 
-  $repo_scheme     = $sonar::params::repo_scheme,
-  $repo_domain     = $sonar::params::repo_domain,
-  $repo_port       = $sonar::params::repo_port,
-  $repo_user       = $sonar::params::repo_user,
-  $repo_pass       = $sonar::params::repo_pass,
-  $repo_path       = $sonar::params::repo_path,
-  $repo_resource   = $sonar::params::package,
+  $admin_pass      = $sonar::params::admin_pass,
+  $mysql           = true,
+  $xmx             = $sonar::params::xmx,
+  $xms             = $sonar::params::xms,
+  $port            = $sonar::params::port,
   $db_host         = $sonar::params::db_host,
   $db              = $sonar::params::db,
   $db_user         = $sonar::params::db_user,
@@ -17,7 +15,6 @@ class sonar (
   $ldap_suffix     = $sonar::params::ldap_suffix,
   $ldap_admin_user = $sonar::params::ldap_admin_user,
   $ldap_admin_pass = $sonar::params::ldap_admin_pass,
-  $ssl             = false
 
 ) inherits sonar::params {
 
